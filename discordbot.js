@@ -3,6 +3,7 @@ const client = new Client();
 const puppeteer = require('puppeteer');
 const { createCanvas, measureText, loadImage } = require('canvas');
 const math = require('math');
+const config = requre('./config.json')
 
 var page;
 var browser;
