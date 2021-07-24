@@ -43,7 +43,7 @@ client.on('message', message => {
           message.react('🔴');
           setTimeout(async function() {
             await message.react('🟡');
-          }, 500);
+          }, 200);
           textImage(message, 1);
         }
         else if (args[1]){message.channel.send('Usage: -t help or -t start (short)')}
@@ -53,7 +53,7 @@ client.on('message', message => {
           message.react('🔴');
           setTimeout(async function() {
             await message.react('🟡');
-          }, 500);
+          }, 200);
           textImage(message, 2);
           return;
         }
@@ -191,6 +191,7 @@ async function getText(paragraphs)
         else
           request.continue();
       });
+      await page.setViewport({ width: 1200, height: 800, });
       await page.goto('https://randomwordgenerator.com/paragraph.php');
       browserWSEndpointMain = browser.wsEndpoint();
       firstTime = false;
@@ -363,4 +364,11 @@ function collect(text, message, paragraphs, botMessage, imageA)
     return error;
   }
 }
+
+process.on('exit', () => {
+  browser.close();
+});
+
 client.login(config.token);
+
+
