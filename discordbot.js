@@ -22,7 +22,7 @@ client.on('message', message => {
     args = message.content.substring(3).split(" ");
     switch (args[0]) {
       case 'help':
-        const att = new MessageAttachment('./mater.png');
+        const att = new MessageAttachment('./Pictures/mater.png');
         const helpEmbed = new MessageEmbed()
           .setTitle('Help')
           .setColor('#D22B2B')
@@ -147,7 +147,7 @@ async function makeImage(text)
       context.shadowOffsetY = 0;
       context.shadowOffsetX = 0;
       context.shadowBlur = 40;
-      await loadImage('./peepowidehappy.png').then(image => {
+      await loadImage('./Pictures/peepowidehappy.png').then(image => {
         context.drawImage(image, 0, 600);
       });
     }
@@ -362,4 +362,4 @@ function collect(text, message, paragraphs, botMessage, imageA)
     return error;
   }
 }
-client.login('ODY1MjQ2MzY2MzEzNzQyMzU2.YPBNeQ.qmf1kyuvXB6O8eYJg_PR4EOm7GE');
+client.login(config.token);
